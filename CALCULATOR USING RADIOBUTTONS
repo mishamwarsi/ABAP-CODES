@@ -1,0 +1,43 @@
+*&---------------------------------------------------------------------*
+*& Report  ZPROG_1
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+
+REPORT ZPROG_1.
+***VALUES FOR PARAMETERS
+PARAMETERS : VALUE_1 TYPE I OBLIGATORY,
+             VALUE_2 TYPE I OBLIGATORY.
+
+DATA : VALUE_3.
+
+****RADIO BUTTON IN PARAMETERS
+PARAMETERS : ADD RADIOBUTTON GROUP RB,
+             SUB RADIOBUTTON GROUP RB,
+             MUL RADIOBUTTON GROUP RB,
+             DIV RADIOBUTTON GROUP RB.
+FORM CALCULATE.
+*****APPLYING LOGICS IN RADIOBUTTONS
+IF ADD = 'X'.
+VALUE_3 = VALUE_1 + VALUE_2.
+****ADDITION LOGIC
+ELSEIF SUB = 'X'.
+VALUE_3 = VALUE_2 - VALUE_1.
+
+ELSEIF MUL = 'X'.
+VALUE_3 = VALUE_2 * VALUE_1.
+
+ELSEIF DIV = 'X'.
+VALUE_3 = VALUE_2 / VALUE_1.
+ENDIF.
+WRITE : VALUE_3.
+
+
+ENDFORM.
+
+START-OF-SELECTION.
+PERFORM CALCULATE.
+
+******************WORKING*************************88
